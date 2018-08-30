@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreen">
 
+<<<<<<< HEAD
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="131dp" />
+=======
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -13,4 +22,5 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="150dp" />
+>>>>>>> master
 </android.support.constraint.ConstraintLayout>
