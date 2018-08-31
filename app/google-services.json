@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "494150706495",
+    "firebase_url": "https://foodmonitoringsystems.firebaseio.com",
+    "project_id": "foodmonitoringsystems",
+    "storage_bucket": "foodmonitoringsystems.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494150706495:android:373953f6b9f8b56c",
+        "android_client_info": {
+          "package_name": "co.mahti.foodmonitoringsystems"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494150706495-bk3puo7ddtmoroptj04jmfa9rlsrb51t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD33k5UdxJ4M6dwsh_RQCxcYF0FLjCKjmE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
