@@ -7,7 +7,6 @@
     android:accessibilityHeading="false"
     android:gravity="center_horizontal"
     tools:context=".LoginActivity"
-    android:background="@drawable/bg_login_white"
     >
 
 
