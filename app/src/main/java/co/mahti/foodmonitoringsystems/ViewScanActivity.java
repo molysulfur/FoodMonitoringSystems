@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,12 +36,28 @@ public class ViewScanActivity extends AppCompatActivity {
         call.enqueue(new Callback<Upcbarcode>() {
             @Override
             public void onResponse(Call<Upcbarcode> call, Response<Upcbarcode> response) {
-                Log.d("success","onResponse");
-                Upcbarcode upcbarcode = response.body();
-                Log.d("success",upcbarcode.getDescription());
-                data = upcbarcode.getDescription();
-                product = (TextView) findViewById(R.id.textView);
-                product.setText(data);
+                if (response.isSuccessful())
+                {   Log.d("success","onResponse");
+                    Upcbarcode upcbarcode = response.body();
+                    Toast.makeText(ViewScanActivity.this,"server returned"+upcbarcode.getDescription(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewScanActivity.this,"server returned",Toast.LENGTH_SHORT).show();
+                    Log.e("test api",upcbarcode.getDescription());
+                    data = upcbarcode.getDescription();
+                    product = (TextView) findViewById(R.id.textView);
+                    product.setText(data);
+                }
+                else{
+                    try {
+                        //Toast.makeText(ViewScanActivity.this,"server returned error:"+response.errorBody().string(),Toast.LENGTH_SHORT).show();
+                        Log.d("server returned error:",response.errorBody().string());
+                    }catch (IOException e){
+                        Toast.makeText(ViewScanActivity.this,"server returned error: unknown",Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                    //Upcbarcode upcbarcode = ErrorUtils.parse
+
+                }
+
             }
 
             @Override
