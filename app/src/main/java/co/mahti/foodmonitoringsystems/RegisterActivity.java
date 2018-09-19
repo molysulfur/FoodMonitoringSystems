@@ -90,13 +90,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        Button btnBack = (Button)findViewById(R.id.back_button);
+/*        Button btnBack = (Button)findViewById(R.id.back_button);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
-        });
+        });*/
     }
 
 }

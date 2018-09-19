@@ -71,9 +71,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (auth.getCurrentUser() != null) {
             Toast.makeText(getApplicationContext(), "OK, you already logged in! session", Toast.LENGTH_SHORT).show();
             //Intent for check Session
-            /*Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            finish();*/
+            finish();
         }
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
