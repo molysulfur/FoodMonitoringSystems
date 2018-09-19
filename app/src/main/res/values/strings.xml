@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">FoodMonitoringSystems</string>
+    <string name="app_name">FoodTrackr</string>
     <string name="ing_Tab">Ingredients</string>
     <string name="rec_Tab">Recipes</string>
-    <string name="tab_text_3">Tab 3</string>
     <string name="action_settings">Settings</string>
-    <string name="action_back">Back</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+
+
+
 
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="recipe_hello">Recipe Fragement</string>
@@ -16,12 +16,16 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
+
+    <string name="action_back">Back</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_register">Register</string>
+
     <string name="prompt_name">Name</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_password_2">Re-enter Password</string>
-    <string name="action_sign_in">Sign in</string>
-    <string name="action_register">Register</string>
+
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
@@ -30,6 +34,9 @@
         completions."
     </string>
     <string name="title_activity_settings">Settings</string>
+
+
+
 
     <!-- Strings related to Settings -->
 
