@@ -7,32 +7,86 @@
     android:orientation="vertical"
     android:weightSum="2"
     >
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/welcome_bg" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:text="Welcome"
+            android:accessibilityHeading="false"
+            android:text="Thanongsak's"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Kitchen"
             android:textColor="#121212"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+            android:textSize="20dp"
+            android:textStyle="normal"/>
+
+    </LinearLayout>
 
 
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/welcome_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="You have 3 ingredients in you kitchen."
+                android:textColor="#121212"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="160dp" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingredients"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,6 +94,9 @@
         android:weightSum="3">
 
         <android.support.v7.widget.CardView
+            app:cardElevation="5dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -60,7 +117,8 @@
                 <ImageView
                     android:id="@+id/ingredientCardGradient"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="120dp"
+                    android:alpha="0.5"
                     android:src="@drawable/black_gradient"
                     app:layout_constraintBottom_toBottomOf="@+id/ingredientCardPic"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -102,6 +160,9 @@
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
+            app:cardElevation="5dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -122,7 +183,8 @@
                 <ImageView
                     android:id="@+id/ingredientCardGradient"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="120dp"
+                    android:alpha="0.5"
                     android:src="@drawable/black_gradient"
                     app:layout_constraintBottom_toBottomOf="@+id/ingredientCardPic"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -164,6 +226,9 @@
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
+            app:cardElevation="5dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -184,7 +249,8 @@
                 <ImageView
                     android:id="@+id/ingredientCardGradient"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="120dp"
+                    android:alpha="0.5"
                     android:src="@drawable/black_gradient"
                     app:layout_constraintBottom_toBottomOf="@+id/ingredientCardPic"
                     app:layout_constraintEnd_toEndOf="parent"
