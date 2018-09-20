@@ -28,6 +28,7 @@ public class ViewScanActivity extends AppCompatActivity {
     private Upcbarcode upcbarcode;
     private String data;
     private String result,url1,url2,test;
+    private String test222;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
