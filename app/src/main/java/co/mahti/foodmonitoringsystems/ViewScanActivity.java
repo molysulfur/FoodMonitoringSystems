@@ -5,10 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Xml;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -24,11 +29,16 @@ import static java.lang.Integer.*;
 public class ViewScanActivity extends AppCompatActivity {
 
     private ImageView apiImage;
-    private TextView product;;
+    private TextView product;
     private Upcbarcode upcbarcode;
-    private String data;
+    private String data,url,image;
     private String result,url1,url2,test;
-    private String test222;
+
+    private TextView inputProductName;
+    private EditText inputQuantity,inputExpiryDate;
+    private Button btnSave;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,38 +53,12 @@ public class ViewScanActivity extends AppCompatActivity {
                 .build();
         API service = retrofit.create(API.class) ;
 
-        Call<Upcbarcode> call = service.getUpcCode(text,"all","en","/y7bYcVpFI7B","aor+VLZhqT2G7HYPY2V08cn22Po=");
-        //Call<Upcbarcode> call = service.getUpcCode(result);
+        //Call<Upcbarcode> call = service.getUpcCode(text,"all","en","/y7bYcVpFI7B","aor+VLZhqT2G7HYPY2V08cn22Po=");
+        Call<Upcbarcode> call = service.getUpcCode();
         Log.d("URL",call.request().url().toString());
         call.enqueue(new Callback<Upcbarcode>() {
             @Override
             public void onResponse(Call<Upcbarcode> call, Response<Upcbarcode> response) {
-                /*AlertDialog.Builder builder = new AlertDialog.Builder(ViewScanActivity.this);
-                builder.setMessage(text);
-                AlertDialog alert1 = builder.create();
-                alert1.show();*/
-                /*if (response.isSuccessful())
-                {   Log.d("success","onResponse");
-                    Upcbarcode upcbarcode = response.body();
-                    Toast.makeText(ViewScanActivity.this,"server returned"+upcbarcode.getDescription(),Toast.LENGTH_SHORT).show();
-                    Toast.makeText(ViewScanActivity.this,"server returned",Toast.LENGTH_SHORT).show();
-                    Log.e("test api",upcbarcode.getDescription());
-                    data = upcbarcode.getDescription();
-                    product = (TextView) findViewById(R.id.textView);
-                    product.setText(data);
-                }
-                else{
-                    try {
-                        //Toast.makeText(ViewScanActivity.this,"server returned error:"+response.errorBody().string(),Toast.LENGTH_SHORT).show();
-                        Log.d("server returned error:",response.errorBody().string());
-                    }catch (IOException e){
-                        Toast.makeText(ViewScanActivity.this,"server returned error: unknown",Toast.LENGTH_SHORT).show();
-                        e.printStackTrace();
-                    }
-                    //Upcbarcode upcbarcode = ErrorUtils.parse
-
-                }*/
-
                 if (response.isSuccessful()) {
                     Log.d("success","onResponse");
                     Upcbarcode upcbarcode = response.body();
@@ -82,8 +66,10 @@ public class ViewScanActivity extends AppCompatActivity {
                     Toast.makeText(ViewScanActivity.this,"server returned",Toast.LENGTH_SHORT).show();
                     Log.e("test api",upcbarcode.getDescription());
                     data = upcbarcode.getDescription();
-                    product = (TextView) findViewById(R.id.textView);
-                    product.setText(data);
+                    inputProductName = (TextView) findViewById(R.id.Scanned_ProductName);
+                    inputProductName.setText(data);
+                    url = upcbarcode.getImage();
+                   // image.setText(url);
                 } else {
                     try {
                         //Toast.makeText(ViewScanActivity.this,"server returned error:"+response.errorBody().string(),Toast.LENGTH_SHORT).show();
@@ -121,6 +107,37 @@ public class ViewScanActivity extends AppCompatActivity {
 
                 }
             });*/
+        inputProductName = (TextView) findViewById(R.id.Scanned_ProductName);
+        inputQuantity = (EditText) findViewById(R.id.Scanned_Quantity);
+        inputExpiryDate = (EditText) findViewById(R.id.Scanned_Expiry);
+        btnSave = (Button) findViewById(R.id.btn_scan);
+        //data = new Data();
+        databaseReference =FirebaseDatabase.getInstance().getReference("ingredient");
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addArrayList();
+            }
+        });
+    }
+    private void addArrayList(){
+        String id = databaseReference.push().getKey();
+        String productName = inputProductName.getText().toString().trim();
+        String image = url.toString().trim();
+        String quantity = inputQuantity.getText().toString().trim();
+        String expiryDate = inputExpiryDate.getText().toString().trim();
 
+        InputDataViewScan inputDataViewScan = new InputDataViewScan(productName,image,quantity,expiryDate);
+        databaseReference.child(id).child("productName").setValue(productName.toString());
+        databaseReference.child(id).child("image").setValue(image.toString());
+        databaseReference.child(id).child("quantity").setValue(quantity.toString());
+        databaseReference.child(id).child("expiryDate").setValue(expiryDate.toString());
+
+        ClearText();
+    }
+    private void ClearText() {
+
+        inputExpiryDate.setText("");
+        inputQuantity.setText("");
     }
 }

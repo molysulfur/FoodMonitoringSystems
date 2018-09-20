@@ -27,30 +27,33 @@
                 android:layout_height="31dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="144dp"
                 android:textColor="#FFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.488"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="147dp"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="FoodName" />
 
             <EditText
                 android:id="@+id/Scanned_Quantity"
                 android:layout_width="73dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="number"
-                tools:layout_editor_absoluteX="31dp"
-                tools:layout_editor_absoluteY="235dp" />
+                app:layout_constraintTop_toBottomOf="@+id/Scanned_Expiry"
+                tools:layout_editor_absoluteX="29dp" />
 
             <EditText
                 android:id="@+id/Scanned_Expiry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
                 android:ems="10"
                 android:inputType="date"
-                tools:layout_editor_absoluteX="26dp"
-                tools:layout_editor_absoluteY="188dp" />
+                app:layout_constraintTop_toTopOf="@+id/Scanned_ProductName"
+                tools:layout_editor_absoluteX="27dp" />
 
             <TextView
                 android:id="@+id/tv_unit"
@@ -67,22 +70,24 @@
             android:layout_height="181dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/cast_abc_scrubber_control_off_mtrl_alpha"
-            tools:layout_editor_absoluteY="0dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cast_abc_scrubber_control_off_mtrl_alpha" />
 
         <Button
             android:id="@+id/btn_scan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="196dp"
             android:background="@drawable/color_btn"
             android:elevation="20dp"
             android:text="Next"
             android:textColor="#FFF"
-            tools:layout_editor_absoluteX="34dp"
-            tools:layout_editor_absoluteY="389dp" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="34dp" />
 
     </android.support.constraint.ConstraintLayout>
 
