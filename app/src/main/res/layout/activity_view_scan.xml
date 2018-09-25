@@ -25,10 +25,10 @@
                 android:id="@+id/Scanned_ProductName"
                 android:layout_width="208dp"
                 android:layout_height="31dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="144dp"
-                android:textColor="#FFF"
+                android:layout_marginEnd="8dp"
+                android:textColor="#000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.488"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,16 +42,18 @@
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="number"
+                android:textColor="#000"
                 app:layout_constraintTop_toBottomOf="@+id/Scanned_Expiry"
                 tools:layout_editor_absoluteX="29dp" />
 
             <EditText
                 android:id="@+id/Scanned_Expiry"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginTop="44dp"
                 android:ems="10"
                 android:inputType="date"
+                android:textColor="#000"
                 app:layout_constraintTop_toTopOf="@+id/Scanned_ProductName"
                 tools:layout_editor_absoluteX="27dp" />
 
@@ -60,17 +62,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Unit"
+                android:textColor="#000"
                 tools:layout_editor_absoluteX="124dp"
                 tools:layout_editor_absoluteY="261dp" />
         </android.support.constraint.ConstraintLayout>
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="192dp"
+            android:layout_width="191dp"
             android:layout_height="181dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
