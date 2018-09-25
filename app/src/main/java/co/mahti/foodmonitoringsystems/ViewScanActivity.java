@@ -20,6 +20,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.Key;
+import java.security.SignatureException;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +42,7 @@ public class ViewScanActivity extends AppCompatActivity {
     private ImageView apiImage;
     private TextView product;
     private Upcbarcode upcbarcode;
-    private String data,url,image,barcode,urlRetrofit;
+    private String data,url,image,barcode,urlRetrofit,signature;
     private String result;
 
     private TextView inputProductName;
@@ -51,12 +56,11 @@ public class ViewScanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_scan);
         final String text = getIntent().getExtras().getString("upcCode");
-        //String signature = "wc02Cxnz7drbraq+J6iVvb2N5gQ=";
+        String signature = "wc02Cxnz7drbraq+J6iVvb2N5gQ=";
         String barcode = "8850124003850";
-        SHA1 sha1 = new SHA1();
-        //String signature = sha1.;
+        String key = "Xq93R9v8m8Ih3Ow2";
         //Log.d("test signature",signature);
-        //String urlRetrofit = "gtin/v2_0/?upcCode="+barcode+"&app_key=/y7bYcVpFI7B&signature="+signature+"&language=en&field_names=all";
+        String urlRetrofit = "gtin/v2_0/?upcCode="+barcode+"&app_key=/y7bYcVpFI7B&signature="+signature+"&language=en&field_names=all";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://www.digit-eyes.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -89,7 +93,6 @@ public class ViewScanActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-
             }
 
             @Override
@@ -99,24 +102,7 @@ public class ViewScanActivity extends AppCompatActivity {
         });
 
 //        https://www.digit-eyes.com/gtin/v2_0/?upcCode=8850999320007%20&field_names=all&language=en&app_key=/y7bYcVpFI7B&signature=aor+VLZhqT2G7HYPY2VO8cn22Po=
-           /* Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://www.digit-eyes.com/gtin/v2_0/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
 
-            API api = retrofit.create(API.class);
-            Call call = api.getUpcCode("8850999320007");
-            call.enqueue(new Callback<Upcbarcode>() {
-                @Override
-                public void onResponse(Call<Upcbarcode> call, Response<Upcbarcode> response) {
-                    Log.e("respone",response.body().getDescription().toString());
-                }
-
-                @Override
-                public void onFailure(Call<Upcbarcode> call, Throwable t) {
-
-                }
-            });*/
         inputProductName = (TextView) findViewById(R.id.Scanned_ProductName);
         inputQuantity = (EditText) findViewById(R.id.Scanned_Quantity);
         inputExpiryDate = (EditText) findViewById(R.id.Scanned_Expiry);
